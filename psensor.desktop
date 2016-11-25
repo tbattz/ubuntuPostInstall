@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Psensor
+GenericName=Psensor
+Comment=Psensor is a graphical temperature mointor for Linux
+Icon=psensor
+TryExec=psensor
+Exec=psensor
+Categories=Application;System;
+X-GNOME-Autostart-enabled=true
+StartupNotify=true

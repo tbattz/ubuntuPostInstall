@@ -103,6 +103,11 @@ echo -e "\e[44m ============================= System Settings ==================
 gsettings set com.canonical.Unity integrated-menus true
 gsettings set com.ubuntu.sound allow-amplified-volume true
 gsettings set org.gnome.desktop.session idle-delay uint32 1800
+gsettings set com.canonical.indicator.datetime show-day true
+gsettings set com.canonical.indicator.datetime show-seconds true
+gsettings set com.canonical.indicator.datetime show-date true
+gsettings set com.canonical.indicator.datetime show-week-numbers true
+gsettings set com.canonical.indicator.datetime show-year true
 
 echo -e "\e[44m ================================== Finished ================================= "
 echo -e "1. Turn off psensor showing at startup."

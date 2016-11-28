@@ -1,15 +1,16 @@
 #!/bin/bash
 # Run without sudo
+# Make Script Executable with sudo chmod +x postInstall.sh
 
 # Add Repos
 echo -e "\e[44m ================================= Adding PPAs ================================= \e[49m"
-#sudo add-apt-repository -y "deb http://dl.google.com/linux/chrome/deb stable main"
-#sudo add-apt-repository -y ppa:webupd8team/sublime-text-2
-#sudo add-apt-repository -y ppa:webupd8team/java
-#sudo add-apt-repository -y ppa:videolan/stable-daily
-#sudo add-apt-repository -y ppa:jfi/psensor-unstable
-#sudo add-apt-repository -y ppa:pinta-maintainers/pinta-stable
-#sudo add-apt-repository -y ppa:lyx-devel/release
+sudo add-apt-repository -y "deb http://dl.google.com/linux/chrome/deb stable main"
+sudo add-apt-repository -y ppa:webupd8team/sublime-text-2
+sudo add-apt-repository -y ppa:webupd8team/java
+sudo add-apt-repository -y ppa:videolan/stable-daily
+sudo add-apt-repository -y ppa:jfi/psensor-unstable
+sudo add-apt-repository -y ppa:pinta-maintainers/pinta-stable
+sudo add-apt-repository -y ppa:lyx-devel/release
 
 # Download Eclipse
 # Check if file exists, then don't redownload
@@ -52,7 +53,7 @@ sudo chmod +x ~/.config/autostart/psensor.desktop
 # Basic Update
 echo -e "\e[44m ================================ Basic Update ================================ \e[49m"
 sudo apt-get -y --force-yes update
-#sudo apt-get -y dist-upgrade
+sudo apt-get -y dist-upgrade
 sudo update-desktop-database # Refresh Launcher Apps
 
 # Install Apps
@@ -97,6 +98,12 @@ echo -e "\e[44m ============================== Setup Launcher ==================
 launchStr="['application://ubiquity.desktop', 'application://org.gnome.Nautilus.desktop', 'application://google-chrome.desktop', 'application://eclipse.desktop', 'application://vlc.desktop', 'application://texmaker.desktop', 'application://libreoffice-writer.desktop', 'application://libreoffice-calc.desktop', 'application://org.gnome.Software.desktop', 'application://unity-control-center.desktop', 'unity://running-apps', 'unity://expo-icon', 'unity://devices']"
 gsettings set com.canonical.Unity.Launcher favorites "$launchStr"
 
+# Update System Settings
+echo -e "\e[44m ============================= System Settings =============================== \e[49m"
+gsettings set com.canonical.Unity integrated-menus true
+gsettings set com.ubuntu.sound allow-amplified-volume true
+gsettings set org.gnome.desktop.session idle-delay uint32 1800
+
 echo -e "\e[44m ================================== Finished ================================= "
 echo -e "1. Turn off psensor showing at startup."
 echo -e "2. Change/create terminal profile."
@@ -104,4 +111,3 @@ echo -e "3. Check that pydev is loaded correctly in eclipse."
 echo -e "4. Set git user and email."
 echo -e "5. Login into chrome, youtube."
 echo -e "6. Restart the computer. \e[49m"
-
